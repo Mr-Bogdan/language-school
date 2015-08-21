@@ -5,7 +5,7 @@ var BookNew = React.createClass({
     var newBook = new Bb.Models.Book({book});
     newBook.save({}, {
       success: function(model, response) {
-        this.transitionTo("book", {bookId: response.id});
+        this.transitionTo("/books");//, {bookId: response.id});
       }.bind(this),
       error: function(model, response) {
         console.error(response);

@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :commented_articles, through: :comments,
            source: :commentable, source_type: 'Article'
+  has_many :books                 
 end

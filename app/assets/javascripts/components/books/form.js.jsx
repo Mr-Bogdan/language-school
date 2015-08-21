@@ -20,7 +20,7 @@ var BookForm = React.createClass({
      oReq = new XMLHttpRequest();
     oReq.open("POST", "/api/v1/books", true);
     oReq.send(MyForm);
-    this.transitionTo('/books/' + this.props.params.bookId);
+    //this.transitionTo('/books/' + this.props.bookId);
   },
   
   render: function() {
