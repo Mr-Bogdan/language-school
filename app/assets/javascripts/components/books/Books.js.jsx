@@ -1,7 +1,7 @@
 var Books  = React.createClass({
   getInitialState: function () {
     return {
-      books: []
+      books: [],
     };
   },
 

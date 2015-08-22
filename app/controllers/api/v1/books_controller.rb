@@ -5,28 +5,27 @@ class Api::V1::BooksController < ApplicationController
 
   
   def index
-    # @books = Book.all
-    # render json: @books
-    render json: user_signed_in? ? Book.all : Book.shared
+    if !user_signed_in?
+      redirect_to root_path
+    else
+      render json: Book.all
+    end
   end
 
   
   def show
-    #render json: Book.find(params[:id])
-    @book = Book.find(params[:id])
     if !user_signed_in?
       head :forbidden
     else
-      render json: @book#.as_json(include: {users: {only: :id}})
+      render json: Book.find(params[:id])
     end
   end
 
   
   def create
-    @book = current_user.books.build(book_params)# Book.new(book_params)
+    @book = current_user.books.build(book_params)
     if @book.save
      render json: @book
-      #redirect_to "#/books"
     else
       head :unprocessable_entity
     end
@@ -34,6 +33,7 @@ class Api::V1::BooksController < ApplicationController
 
   
   def update
+    @book = current_user.books.find(params[:id])
     if @book.update(book_params)
       render json: @book
     else
@@ -43,6 +43,7 @@ class Api::V1::BooksController < ApplicationController
 
   
   def destroy
+    @book = current_user.books.find(params[:id])
     @book.destroy
     head :no_content
   end
