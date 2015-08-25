@@ -1,8 +1,14 @@
 var Book = React.createClass({
+mixins: [GetCurrentUserId],
+
   getInitialState: function () {
     return {
-      book: []
+      book: [],
+      current_user_id: ""
     };
+  },
+  componentWillMount: function() {
+    this.setState({current_user_id: this.getCurrentUserId()});
   },
   componentDidMount: function () {
     this.book = new Bb.Models.Book({id: this.props.params.bookId});
@@ -10,14 +16,13 @@ var Book = React.createClass({
       success: function(model, response, options) {
         this.setState({ book: model.toJSON()});
           console.log(this.book);
+          console.log(this.state.current_user_id);
+          console.log(this.state.book.user_id);
       }.bind(this),
       error: function(model, response, options) {
         console.log(response.status);
       }
     });  
-  },
-  componentWillUnmount: function () {
-    this.book.off('change');
   },
 
   render: function () {
@@ -27,10 +32,15 @@ var Book = React.createClass({
                    description = {this.state.book.description}
                    attachment = {this.state.book.attachment}/>
                    
-
+               { (this.state.book.user_id == this.state.current_user_id) ?
+                <div>
                    <ToDestroyBook id={this.state.book.id} />
                    <ToBookEdit id= {this.state.book.id} />
-                   <BackToBooks/>     
+                </div>
+                : false
+                }
+                   <BackToBooks/>  
+                
       </div>
       );
   }

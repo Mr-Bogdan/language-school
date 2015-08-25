@@ -1,8 +1,15 @@
 var Books  = React.createClass({
+  mixins: [GetCurrentUserId],
+
   getInitialState: function () {
     return {
       books: [],
+      current_user_id: ""
     };
+  },
+
+  componentWillMount: function() {
+    this.setState({current_user_id: this.getCurrentUserId()});
   },
 
   getData: function() {
@@ -25,13 +32,14 @@ var Books  = React.createClass({
       return (<Link to={'/books/' + book.id} className="list-group-item" key={book.id}>
         <h4 className="list-group-item-heading">{book.title}</h4>
         <p className="list-group-item-text">{book.description}</p>
+        <p className="list-group-item-text">{book.user_id}</p>
         </Link>);
 });
     return (
       <div className='container'>
         <h1>Books list</h1>
         <div>{booksList}</div>
-         <NewBookLink  />
+        {this.state.current_user_id ? <NewBookLink/> : false}
       </div>
     ); 
   }
