@@ -79,7 +79,7 @@ var BookFormEdit = React.createClass({
         <div className="col-md-6">
           <div className="form-group">
             <label for="title">Title</label>
-            <input type="string"  className="form-control" placeholder="Enter title" ref="title" />
+            <input type="string"  className="form-control" placeholder="Enter title"  ref="title" />
           </div>
           <div className="form-group">
             <label for="title">Description:</label>

@@ -32,7 +32,6 @@ var Books  = React.createClass({
       return (<Link to={'/books/' + book.id} className="list-group-item" key={book.id}>
         <h4 className="list-group-item-heading">{book.title}</h4>
         <p className="list-group-item-text">{book.description}</p>
-        <p className="list-group-item-text">{book.user_id}</p>
         </Link>);
 });
     return (

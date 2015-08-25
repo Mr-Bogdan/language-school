@@ -29,15 +29,15 @@ var BookForm = React.createClass({
         <div className="col-md-6">
           <div className="form-group">
             <label for="title">Title</label>
-            <input type="string" name = "book[title]" className="form-control" placeholder="Enter title"  />
+            <input type="string" name = "book[title]" ref='title' className="form-control" placeholder="Enter title" required  />
           </div>
           <div className="form-group">
             <label for="title">Description:</label>
-            <textarea type="text" name = "book[description]" className="form-control" rows="3" placeholder="Please write the description"  ></textarea>
+            <textarea type="text" name = "book[description]" className="form-control" rows="3" placeholder="Please write the description" required ></textarea>
           </div>
           <div className="form-group">
             <label for="attachment">Attachment</label>
-            <input type="file" name = "book[attachment]" />
+            <input type="file" name = "book[attachment]" required/>
           </div>
           <button type="submit"  className="btn btn-primary">{this.props.buttonRole}</button>
         </div>
