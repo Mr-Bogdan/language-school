@@ -22,7 +22,6 @@ gem 'acts_as_tree', '~> 2.2.0'
 gem "fog"
 gem "figaro"
 
-
 group :development do
   gem 'spring'
   gem 'pry'
