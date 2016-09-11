@@ -15,12 +15,13 @@ gem 'geocoder'
 gem 'devise'
 gem 'carrierwave', '~> 0.10.0'
 gem 'responders', '~> 2.1.0'
-gem 'mini_magick', '~> 4.2.10'
+gem 'mini_magick', '~> 3.5.0'
 gem 'tinymce-rails'
 gem 'rails-i18n', '~> 4.0.0'
 gem 'acts_as_tree', '~> 2.2.0'
 gem "fog"
 gem "figaro"
+
 
 group :development do
   gem 'spring'
@@ -45,4 +46,4 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-strftime'
 end
 
-ruby '2.2.2'
+ruby '2.3.0'
