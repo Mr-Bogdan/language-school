@@ -24,7 +24,7 @@ RSpec.describe Menu, type: :model do
 
   it "don't create menu with parent_id string" do
     menu = build(:menu, parent_id: "school")
-    expect(menu.valid?).to eq(true)
+    expect(menu.valid?).to eq(false)
   end
 
   it 'creates submenu array' do
