@@ -46,5 +46,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-strftime'
 end
 
-ruby '2.3.0'
+ruby '2.2.2'
 
