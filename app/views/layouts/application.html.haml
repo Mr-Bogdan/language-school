@@ -9,7 +9,6 @@
     = tinymce_assets
 
   %body
-    %h1= 'proba!'
     = react_component 'Navbar', {isSignedIn: user_signed_in?, notice: (notice if notice.present?), alert: (alert if alert.present?)}, :nav
     .container.main-container
       =react_router 'Router', 'HashLocation', {}, {'data-user-id': user_signed_in? ? current_user.id : ""}
