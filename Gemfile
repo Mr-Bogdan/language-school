@@ -47,4 +47,3 @@ source 'https://rails-assets.org' do
 end
 
 ruby '2.3.0'
-
